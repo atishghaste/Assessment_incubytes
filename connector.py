@@ -1,10 +1,10 @@
-import psycopg2
+import psycopg2      #import library
 
-conn = psycopg2.connect(database="postgres", user="postgres", password="12345", host="127.0.0.1", port="5432")
-print("Opened database successfully")
+conn = psycopg2.connect(database="postgres", user="postgres", password="12345", host="127.0.0.1", port="5432")    #connection to database
+print("Opened database successfully")      #database connected
 
 cur = conn.cursor()
-cur.execute('''CREATE TABLE patients
+cur.execute('''CREATE TABLE patients                  
       (Customer_Name VARCHAR(255) PRIMARY KEY NOT NULL,
       Customer_Id  VARCHAR(18) NOT NULL,
       Open_Date  Date  NOT NULL,
@@ -15,8 +15,8 @@ cur.execute('''CREATE TABLE patients
       Country VARCHAR(5),
       post INT,
       DOB Date,
-      Is_Active CHAR(1));''')
-print("Table created successfully")
+      Is_Active CHAR(1));''')    #value inserting in table
+print("Table created successfully")               
 
 conn.commit()
 conn.close()
